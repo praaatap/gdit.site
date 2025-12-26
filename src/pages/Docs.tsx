@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronRight, ExternalLink } from 'lucide-react';
+import { Menu, X, ExternalLink } from 'lucide-react';
 import { cn } from '../utils/cn';
 
 import { Introduction } from './docs/Introduction';
