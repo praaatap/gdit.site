@@ -1,6 +1,4 @@
-import { DocContent } from '../../components/DocContent';
 import { CodeBlock } from '../../components/CodeBlock';
-import { motion } from 'framer-motion';
 import { GitBranch, RefreshCw, Layers, Terminal, FileText, Shield } from 'lucide-react';
 
 const features = [
@@ -14,24 +12,18 @@ const features = [
 
 export function Introduction() {
     return (
-        <DocContent
-            title="Introduction"
-            description="gdit brings familiar Git-like workflows to Google Drive. Stage, commit, and push your files to the cloud."
-        >
+        <div className="docusaurus-content">
             {/* Feature Grid */}
-            <div className="not-prose grid gap-3 md:grid-cols-2 lg:grid-cols-3 my-8">
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 my-8">
                 {features.map((f, i) => (
-                    <motion.div
+                    <div
                         key={i}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: i * 0.05 }}
-                        className="p-4 rounded-xl bg-white/[0.03] border border-white/5 hover:border-white/10 transition-colors"
+                        className="p-4 rounded-lg bg-[#242526] border border-[#2e2e31] hover:border-[#25c2a0]/30 transition-colors"
                     >
-                        <f.icon className="w-5 h-5 text-blue-400 mb-2" />
+                        <f.icon className="w-5 h-5 text-[#25c2a0] mb-2" />
                         <h3 className="font-semibold text-white text-sm mb-1">{f.title}</h3>
-                        <p className="text-xs text-gray-500">{f.desc}</p>
-                    </motion.div>
+                        <p className="text-xs text-[#b4b4b4]">{f.desc}</p>
+                    </div>
                 ))}
             </div>
 
@@ -69,7 +61,7 @@ gdit push`}
                 your files, commits, and the connection to your Google Drive folder.
             </p>
 
-            <div className="not-prose bg-[#0d1117] border border-white/10 p-6 rounded-xl text-xs md:text-sm text-gray-400 font-mono whitespace-pre overflow-x-auto my-8">
+            <div className="bg-[#0d0d0d] border border-[#2e2e31] p-6 rounded-lg text-xs md:text-sm text-[#b4b4b4] font-mono whitespace-pre overflow-x-auto my-6">
                 {`┌─────────────┐    gdit add     ┌─────────────┐   gdit commit   ┌─────────────┐
 │   Working   │ ──────────────► │   Staging   │ ──────────────► │   Commits   │
 │  Directory  │                 │    Area     │                 │   (Local)   │
@@ -88,6 +80,6 @@ gdit push`}
                 Ready to get started? Head to the <a href="/docs/installation">Installation</a> guide to
                 install gdit, then follow the <a href="/docs/quick-start">Quick Start</a> to sync your first project.
             </p>
-        </DocContent>
+        </div>
     );
 }

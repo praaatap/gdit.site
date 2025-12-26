@@ -1,13 +1,9 @@
-import { DocContent } from '../../components/DocContent';
 import { CodeBlock, TerminalCommand } from '../../components/CodeBlock';
 import { Check } from 'lucide-react';
 
 export function Installation() {
     return (
-        <DocContent
-            title="Installation"
-            description="Get gdit installed on your machine in under a minute."
-        >
+        <div className="docusaurus-content">
             <h2>Requirements</h2>
             <ul>
                 <li><strong>Node.js 18+</strong> — gdit is built on Node.js</li>
@@ -38,15 +34,15 @@ export function Installation() {
             <CodeBlock code="gdit version 3.0.1" language="text" />
 
             <h2>What gets installed</h2>
-            <div className="not-prose my-6 space-y-3">
+            <div className="my-6 space-y-3">
                 {[
                     'CLI binary accessible globally as "gdit"',
                     'No system dependencies required',
                     'Works on Windows, macOS, and Linux',
                 ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 text-gray-300">
-                        <div className="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center shrink-0">
-                            <Check className="w-3 h-3 text-green-400" />
+                    <div key={i} className="flex items-center gap-3 text-[#b4b4b4]">
+                        <div className="w-5 h-5 rounded-full bg-[#25c2a0]/20 flex items-center justify-center shrink-0">
+                            <Check className="w-3 h-3 text-[#25c2a0]" />
                         </div>
                         <span className="text-sm">{item}</span>
                     </div>
@@ -79,6 +75,6 @@ source ~/.bashrc`}
             <p>
                 Now that gdit is installed, head to <a href="/docs/quick-start">Quick Start</a> to set up your first repository.
             </p>
-        </DocContent>
+        </div>
     );
 }

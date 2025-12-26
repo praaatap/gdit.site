@@ -1,21 +1,56 @@
-@import "tailwindcss";
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
 
 @theme {
   --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
 }
 
+/* Google Drive Colors */
 :root {
+  --gd-blue: #4285F4;
+  --gd-green: #34A853;
+  --gd-yellow: #FBBC04;
+  --gd-red: #EA4335;
+
   font-family: var(--font-sans);
   line-height: 1.6;
   font-weight: 400;
-  color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark Theme (Default) */
+:root,
+:root.dark {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #0d0d0d;
+  --bg-tertiary: #1a1a1a;
+  --bg-card: #141414;
+  --border-color: rgba(255, 255, 255, 0.06);
+  --border-color-hover: rgba(255, 255, 255, 0.12);
+  --text-primary: #ffffff;
+  --text-secondary: #b4b4b4;
+  --text-muted: #6b6b6b;
+  --code-bg: rgba(66, 133, 244, 0.1);
+  color-scheme: dark;
+}
+
+/* Light Theme */
+:root.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f1f3f4;
+  --bg-card: #ffffff;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-color-hover: rgba(0, 0, 0, 0.15);
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --text-muted: #9aa0a6;
+  --code-bg: rgba(66, 133, 244, 0.08);
+  color-scheme: light;
 }
 
 * {
@@ -30,8 +65,9 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: #030303;
-  color: #fafafa;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom scrollbar */
@@ -45,23 +81,23 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(128, 128, 128, 0.3);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(128, 128, 128, 0.5);
 }
 
 /* Selection */
 ::selection {
-  background: rgba(59, 130, 246, 0.3);
+  background: rgba(66, 133, 244, 0.3);
 }
 
 /* Code blocks */
 pre {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+  scrollbar-color: rgba(128, 128, 128, 0.3) transparent;
 }
 
 pre code {
@@ -77,4 +113,179 @@ pre code {
 /* Animation delays */
 .delay-1000 {
   animation-delay: 1000ms;
+}
+
+/* =============================================== */
+/* Docusaurus/Docs Content Styles with Theme Support */
+/* =============================================== */
+
+.docusaurus-content {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+.docusaurus-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.docusaurus-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.docusaurus-content p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.docusaurus-content a {
+  color: var(--gd-blue);
+  text-decoration: none;
+}
+
+.docusaurus-content a:hover {
+  text-decoration: underline;
+}
+
+.docusaurus-content strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.docusaurus-content code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--code-bg);
+  color: var(--gd-blue);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
+.docusaurus-content pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.docusaurus-content pre code {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+.docusaurus-content ul,
+.docusaurus-content ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+}
+
+.docusaurus-content li {
+  margin: 0.5rem 0;
+}
+
+.docusaurus-content li::marker {
+  color: var(--text-muted);
+}
+
+.docusaurus-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.docusaurus-content th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  font-weight: 600;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.docusaurus-content td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.docusaurus-content tr:hover td {
+  background: var(--bg-tertiary);
+}
+
+.docusaurus-content blockquote {
+  border-left: 4px solid var(--gd-blue);
+  background: var(--code-bg);
+  margin: 1rem 0;
+  padding: 1rem 1.5rem;
+  color: var(--text-secondary);
+}
+
+.docusaurus-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Admonitions (tip/warning boxes) */
+.docusaurus-content .admonition {
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+}
+
+.docusaurus-content .admonition-tip {
+  background: rgba(52, 168, 83, 0.1);
+  border-left: 4px solid var(--gd-green);
+}
+
+.docusaurus-content .admonition-warning {
+  background: rgba(251, 188, 4, 0.1);
+  border-left: 4px solid var(--gd-yellow);
+}
+
+.docusaurus-content .admonition-danger {
+  background: rgba(234, 67, 53, 0.1);
+  border-left: 4px solid var(--gd-red);
+}
+
+/* =============================================== */
+/* Theme-aware utility classes */
+/* =============================================== */
+
+.theme-bg-primary {
+  background-color: var(--bg-primary);
+}
+
+.theme-bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.theme-bg-card {
+  background-color: var(--bg-card);
+}
+
+.theme-text-primary {
+  color: var(--text-primary);
+}
+
+.theme-text-secondary {
+  color: var(--text-secondary);
+}
+
+.theme-border {
+  border-color: var(--border-color);
 }

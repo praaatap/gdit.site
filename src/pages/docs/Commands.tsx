@@ -1,4 +1,3 @@
-import { DocContent } from '../../components/DocContent';
 import { CodeBlock } from '../../components/CodeBlock';
 
 const commandGroups = [
@@ -66,30 +65,27 @@ const commandGroups = [
 
 export function Commands() {
     return (
-        <DocContent
-            title="Commands"
-            description="Complete reference of all available gdit commands."
-        >
-            <div className="not-prose space-y-10 my-8">
+        <div className="docusaurus-content">
+            <div className="space-y-8 my-8">
                 {commandGroups.map((group, i) => (
                     <div key={i}>
                         <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                             <span>{group.emoji}</span>
                             {group.title}
                         </h3>
-                        <div className="rounded-xl border border-white/10 overflow-hidden bg-white/[0.01]">
+                        <div className="rounded-lg border border-[#2e2e31] overflow-hidden">
                             <table className="w-full text-left text-sm">
                                 <thead>
-                                    <tr className="bg-white/[0.03] border-b border-white/10">
-                                        <th className="py-3 px-4 font-medium text-gray-400 w-1/3">Command</th>
-                                        <th className="py-3 px-4 font-medium text-gray-400">Description</th>
+                                    <tr className="bg-[#242526]">
+                                        <th className="py-3 px-4 font-medium text-[#b4b4b4] w-1/3 border-b border-[#2e2e31]">Command</th>
+                                        <th className="py-3 px-4 font-medium text-[#b4b4b4] border-b border-[#2e2e31]">Description</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {group.commands.map((cmd, j) => (
-                                        <tr key={j} className="border-b border-white/5 last:border-0 hover:bg-white/[0.02] transition-colors">
-                                            <td className="py-3 px-4 font-mono text-blue-400 text-xs whitespace-nowrap">{cmd.cmd}</td>
-                                            <td className="py-3 px-4 text-gray-300">{cmd.desc}</td>
+                                        <tr key={j} className="border-b border-[#2e2e31] last:border-0 hover:bg-[#242526]/50 transition-colors">
+                                            <td className="py-3 px-4 font-mono text-[#25c2a0] text-xs whitespace-nowrap">{cmd.cmd}</td>
+                                            <td className="py-3 px-4 text-[#e3e3e3]">{cmd.desc}</td>
                                         </tr>
                                     ))}
                                 </tbody>
@@ -138,6 +134,6 @@ gdit clone ABC123...
 gdit pull`}
                 language="bash"
             />
-        </DocContent>
+        </div>
     );
 }
